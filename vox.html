@@ -240,6 +240,22 @@
         <p>You can directly comment any post below</p>
    <p>You can create a post by <a href="xcreate.html">clicking here</a>
    </p>
+
+<input type="text" id="searchBox" placeholder="Search..." onkeyup="searchPage()" />
+
+<script>
+function searchPage() {
+  const input = document.getElementById("searchBox").value.toLowerCase();
+  const content = document.body.innerText.toLowerCase();
+  if (!input) return;
+  if (content.includes(input)) {
+    alert("Match found!");
+  } else {
+    alert("No match found.");
+  }
+}
+</script>
+        
   <article>
      <h2>Posts:</h2>
     <p>User <strong>did08018</strong>: <a href="xpost0001.html">I know Levodopa Cardibopa doesn't precipitate the apparition.
