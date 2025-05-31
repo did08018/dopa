@@ -241,18 +241,31 @@
    <p>You can create a post by <a href="xcreate.html">clicking here</a>
    </p>
 
-<input type="text" id="searchBox" placeholder="Search..." onkeyup="searchPage()" />
+<input type="text" id="searchInput" placeholder="Search...">
+<button onclick="handleSearch()">Search</button>
 
 <script>
-function searchPage() {
-  const input = document.getElementById("searchBox").value.toLowerCase();
-  const content = document.body.innerText.toLowerCase();
-  if (!input) return;
-  if (content.includes(input)) {
-    alert("Match found!");
-  } else {
-    alert("No match found.");
-  }
+function searchPosts(query) {
+    const posts = document.querySelectorAll('.post');
+    let matchFound = false;
+
+    posts.forEach(post => {
+        if (post.textContent.toLowerCase().includes(query.toLowerCase())) {
+            matchFound = true;
+            // you could highlight or scroll to it here
+        }
+    });
+
+    if (!matchFound) {
+        alert("No match found.");
+    }
+}
+
+function handleSearch() {
+    const query = document.getElementById('searchInput').value.trim();
+    if (query) {
+        searchPosts(query);
+    }
 }
 </script>
         
