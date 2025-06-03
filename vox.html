@@ -254,9 +254,8 @@ function searchPosts(query) {
   <article>
     <div class="post">
      <h2>Latest Posts:</h2>
-    <p>03 June 2025 - User did08018: <a href="xpost0002.html">I take propanolol when needed and it helps.</a>
-    <p>02 June 2025 - User did08018: <a href="xpost0001.html">I know Levodopa Cardibopa doesn't precipitate the apparition of dyskenesia but I still won't start taking it.</a>
-    </p>
+    <p>03 June 2025 - User did08018: <a href="xpost0002.html">I take propanolol when needed and it helps.</a></p>
+    <p>02 June 2025 - User did08018: <a href="xpost0001.html">I know Levodopa Cardibopa doesn't precipitate the apparition of dyskenesia but I still won't start taking it.</a></p>
     </div>
   </article>
 
@@ -307,6 +306,14 @@ function searchPosts(query) {
         async>
 </script>-->
 
+      <script>
+function handleSearch() {
+  const query = document.getElementById('searchInput').value.trim();
+  if (query) {
+    searchPosts(query);
+  }
+}
+</script>
         
 </body>
 </html>
