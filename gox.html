@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Finding Dopa – Yes We Will</title>
+  <meta name="description" content="Stem cell therapy offers new hope for Parkinson’s disease. A fix is on the way. Keep fighting!">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <meta name="theme-color" content="#000000">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* Base Styles */
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #1a1c2b;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    header {
+      background-color: #121212;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      background: #1a1a1a;
+      padding: 6px 10px;
+    }
+
+    .home-brand {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      color: #007acc;
+      font-size: 1.2rem;
+    }
+
+    .logo-text {
+      font-family: 'PT Serif', serif;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: white;
+    }
+
+    /* Slider */
+    .slider-container {
+      width: 100%;
+      display: flex;
+      gap: 10px;
+      padding: 10px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .slider-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .slide {
+      flex: 0 0 auto;
+      background: #1f1f1f;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 8px;
+      white-space: nowrap;
+      font-size: 0.95rem;
+      font-family: 'PT Serif', serif;
+      text-decoration: none;
+      text-align: center;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .slide:hover {
+      color: #00bfff;
+    }
+
+    .slide.active {
+      background: #fdfdfd;
+      color: #2e2a89;
+      border: 2px solid #2e2a89;
+    }
+
+    /* Main Content */
+    main {
+      flex: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      box-sizing: border-box;
+    }
+
+    .main-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #4a4e69;
+      max-width: 600px;
+      margin: 0 auto 16px;
+    }
+
+    .welcome-text {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #2e2a89;
+      margin: 0;
+      background: linear-gradient(90deg, #2e2a89, #635bff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Legend Section */
+    .legend-section {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .legend-image {
+      max-width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid #e0e3ee;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Body Text and Posts */
+    .body-text-section, .post {
+      background: #fff;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      margin-bottom: 24px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .body-text-section:hover, .post:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .body-text-section p, .post p {
+      margin: 0 0 16px;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #1a1c2b;
+    }
+
+    .post h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #2e2a89;
+      margin: 0 0 16px;
+    }
+
+    .source, .post a {
+      color: #635bff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .source a:hover, .post a:hover {
+      color: #2e2a89;
+      text-decoration: underline;
+    }
+
+    /* Search Styles */
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    #searchInput {
+      flex: 1;
+      padding: 12px 16px;
+      font-size: 1rem;
+      border: 1px solid #e0e3ee;
+      border-radius: 8px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    #searchInput:focus {
+      outline: none;
+      border-color: #635bff;
+      box-shadow: 0 0 0 3px rgba(99, 91, 255, 0.1);
+    }
+
+    #searchButton {
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 500;
+      background: #635bff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    #searchButton:hover {
+      background: #2e2a89;
+    }
+
+    #noResultsMessage {
+      color: #e63946;
+      font-size: 0.9rem;
+      margin-top: 12px;
+      display: none;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 24px 20px;
+      background: #1a1a1a;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    /* Highlight */
+    mark {
+      background: #e6e9ff;
+      color: #2e2a89;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      main {
+        padding: 24px 16px;
+      }
+
+      .welcome-text {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .search-container {
+        flex-direction: column;
+      }
+
+      #searchButton {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <a href="index.html" class="home-brand" aria-label="Home">
+        <i class="fas fa-brain"></i>
+        <span class="logo-text">Finding Dopa</span>
+      </a>
+    </div>
+
+    <div class="slider-container">
+      <a href="fix-or-cure.html" class="slide">Fix or Cure?</a>
+      <a href="science.html" class="slide">The Science</a>
+      <a href="actors.html" class="slide">The Actors</a>
+      <a href="news.html" class="slide">Latest News</a>
+      <a href="clinical-trials.html" class="slide">Clinical Trials</a>
+      <a href="resources.html" class="slide">Resources</a>
+      <a href="about.html" class="slide">About</a>
+      <a href="disclaimer.html" class="slide">Disclaimer</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="main-content">
+      <section class="hero">
+        <p>A fix for Parkinson's disease is on the way. Keep fighting!</p>
+      </section>
+
+      <section class="hero">
+        <h1 class="welcome-text">Dopa VOX</h1>
+      </section>
+
+      <div class="body-text-section">
+        <p>You can click on any post to comment.</p>
+        <p>You can create a post by <a href="xcreate.html">clicking here</a></p>
+      </div>
+
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search Posts...">
+        <button id="searchButton" onclick="handleSearch()">Search</button>
+      </div>
+      <div id="noResultsMessage">No results found.</div>
+
+      <article class="post">
+        <h2>Latest Posts:</h2>
+        <p>03 June 2025 - User did08018: <a href="xpost0002.html">I take propanolol when needed and it helps.</a></p>
+        <p>02 June 2025 - User did08018: <a href="xpost0001.html">I know Levodopa Cardibopa doesn't precipitate the apparition of dyskenesia but I still won't start taking it.</a></p>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Finding Dopa. All rights reserved.
+  </footer>
+
+  <script>
+    function searchPosts(query) {
+      const posts = document.querySelectorAll('.post');
+      let matchFound = false;
+      let firstMatch = null;
+      const regex = new RegExp(`(${query})`, 'gi');
+
+      posts.forEach(post => {
+        const paragraphs = post.querySelectorAll('p');
+        paragraphs.forEach(p => {
+          p.innerHTML = p.textContent; // reset any highlights
+          if (query && p.textContent.toLowerCase().includes(query.toLowerCase())) {
+            p.innerHTML = p.textContent.replace(regex, '<mark>$1</mark>');
+            if (!firstMatch) firstMatch = p;
+            matchFound = true;
+          }
+        });
+      });
+
+      const messageBox = document.getElementById('noResultsMessage');
+      if (query && !matchFound) {
+        messageBox.style.display = 'block';
+      } else {
+        messageBox.style.display = 'none';
+      }
+
+      if (firstMatch) {
+        firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    function handleSearch() {
+      const query = document.getElementById('searchInput').value.trim();
+      searchPosts(query);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const input = document.getElementById('searchInput');
+      input.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+          handleSearch();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
