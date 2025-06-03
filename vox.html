@@ -227,6 +227,10 @@
 <input type="text" id="searchInput" placeholder="Search Posts...">
 <button onclick="handleSearch()">Search</button>
 
+<input type="text" id="searchInput" placeholder="Search Posts...">
+<button onclick="handleSearch()">Search</button>
+<div id="noResultsMessage" style="color: red; margin-top: 5px; display: none;">No results found.</div>
+
 <script>
   function searchPosts(query) {
     const posts = document.querySelectorAll('.post');
@@ -237,20 +241,23 @@
     posts.forEach(post => {
       const paragraphs = post.querySelectorAll('p');
       paragraphs.forEach(p => {
-        p.innerHTML = p.textContent; // Remove previous highlights
+        p.innerHTML = p.textContent; // reset any highlights
         if (query && p.textContent.toLowerCase().includes(query.toLowerCase())) {
           p.innerHTML = p.textContent.replace(regex, '<mark>$1</mark>');
-          if (!firstMatch) {
-            firstMatch = p;
-          }
+          if (!firstMatch) firstMatch = p;
           matchFound = true;
         }
       });
     });
 
-    if (!matchFound) {
-      alert("No match found.");
-    } else if (firstMatch) {
+    const messageBox = document.getElementById('noResultsMessage');
+    if (query && !matchFound) {
+      messageBox.style.display = 'block';
+    } else {
+      messageBox.style.display = 'none';
+    }
+
+    if (firstMatch) {
       firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   }
@@ -260,7 +267,7 @@
     searchPosts(query);
   }
 
-  // Trigger on Enter
+  // Trigger on Enter key
   document.addEventListener('DOMContentLoaded', () => {
     const input = document.getElementById('searchInput');
     input.addEventListener('keypress', function (e) {
@@ -268,11 +275,6 @@
         e.preventDefault();
         handleSearch();
       }
-    });
-
-    // Live search as you type
-    input.addEventListener('input', function () {
-      handleSearch();
     });
   });
 </script>
