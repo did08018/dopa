@@ -17,11 +17,19 @@
       margin: 0;
       padding: 0;
       font-family: 'Inter', sans-serif;
-      background: #fff;
+      background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96c93d);
+      background-size: 400% 400%;
+      animation: gradientAnimation 15s ease infinite;
       color: #1a1c2b;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+    }
+
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
     }
 
     body {
@@ -103,90 +111,83 @@
       margin: 0 auto;
       padding: 40px 20px;
       box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
     }
 
     .main-content {
       max-width: 800px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
     /* Hero Section */
     .hero {
       text-align: center;
       margin-bottom: 40px;
+      padding: 60px 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     }
 
     .hero p {
-      font-size: 1.1rem;
-      line-height: 1.6;
+      font-size: 1.5rem;
+      line-height: 1.8;
       color: #4a4e69;
       max-width: 600px;
-      margin: 0 auto 16px;
+      margin: 0 auto 20px;
     }
 
     .welcome-text {
-      font-size: 2.5rem;
+      font-size: 4rem;
       font-weight: 700;
-      color: #2e2a89;
+      color: #1a1c2b;
       margin: 0;
-      background: linear-gradient(90deg, #2e2a89, #635bff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* Legend Section */
-    .legend-section {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .legend-image {
-      max-width: 100%;
-      height: auto;
-      object-fit: cover;
-      border-radius: 12px;
-      border: 1px solid #e0e3ee;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     /* Body Text and Posts */
     .body-text-section, .post {
-      background: #fff;
-      padding: 24px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      margin-bottom: 24px;
-      transition: transform 0.2s, box-shadow 0.2s;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .body-text-section:hover, .post:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
     }
 
     .body-text-section p, .post p {
-      margin: 0 0 16px;
-      font-size: 1rem;
-      line-height: 1.6;
+      margin: 0 0 20px;
+      font-size: 1.2rem;
+      line-height: 1.8;
       color: #1a1c2b;
     }
 
     .post h2 {
-      font-size: 1.5rem;
+      font-size: 2.5rem;
       font-weight: 600;
-      color: #2e2a89;
-      margin: 0 0 16px;
+      color: #1a1c2b;
+      margin: 0 0 20px;
     }
 
     .source, .post a {
-      color: #635bff;
+      color: #ff6b6b;
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.2s;
+      transition: color 0.3s;
     }
 
     .source a:hover, .post a:hover {
-      color: #2e2a89;
+      color: #45b7d1;
       text-decoration: underline;
     }
 
@@ -194,63 +195,68 @@
     .search-container {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 24px;
+      gap: 15px;
+      margin-bottom: 30px;
     }
 
     #searchInput {
       flex: 1;
-      padding: 12px 16px;
-      font-size: 1rem;
-      border: 1px solid #e0e3ee;
-      border-radius: 8px;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      padding: 15px 20px;
+      font-size: 1.2rem;
+      border: 2px solid #4ecdc4;
+      border-radius: 30px;
+      transition: border-color 0.3s, box-shadow 0.3s;
     }
 
     #searchInput:focus {
       outline: none;
-      border-color: #635bff;
-      box-shadow: 0 0 0 3px rgba(99, 91, 255, 0.1);
+      border-color: #45b7d1;
+      box-shadow: 0 0 0 4px rgba(69, 183, 209, 0.2);
     }
 
     #searchButton {
-      padding: 12px 24px;
-      font-size: 1rem;
-      font-weight: 500;
-      background: #635bff;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      background: #ff6b6b;
       color: #fff;
       border: none;
-      border-radius: 8px;
+      border-radius: 30px;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: background 0.3s, transform 0.3s;
+      box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
     }
 
     #searchButton:hover {
-      background: #2e2a89;
+      background: #45b7d1;
+      transform: scale(1.05);
     }
 
     #noResultsMessage {
-      color: #e63946;
-      font-size: 0.9rem;
-      margin-top: 12px;
+      color: #ff6b6b;
+      font-size: 1.1rem;
+      margin-top: 15px;
       display: none;
     }
 
     /* Footer */
     footer {
       text-align: center;
-      padding: 24px 20px;
-      background: #1a1a1a;
+      padding: 30px 20px;
+      background: rgba(26, 28, 43, 0.9);
       color: #fff;
-      font-size: 0.9rem;
+      font-size: 1.1rem;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
     }
 
     /* Highlight */
     mark {
-      background: #e6e9ff;
-      color: #2e2a89;
-      padding: 2px 4px;
-      border-radius: 4px;
+      background: #96c93d;
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(150, 201, 61, 0.3);
     }
 
     /* Responsive Design */
@@ -260,11 +266,11 @@
       }
 
       .welcome-text {
-        font-size: 2rem;
+        font-size: 2.5rem;
       }
 
       .hero p {
-        font-size: 1rem;
+        font-size: 1.2rem;
       }
 
       .search-container {
