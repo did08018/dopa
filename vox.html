@@ -228,27 +228,53 @@
 <button onclick="handleSearch()">Search</button>
 
 <script>
-function searchPosts(query) {
-  const posts = document.querySelectorAll('.post');
-  let matchFound = false;
-  const regex = new RegExp(`(${query})`, 'gi'); // match all instances, case-insensitive
+  function searchPosts(query) {
+    const posts = document.querySelectorAll('.post');
+    let matchFound = false;
+    let firstMatch = null;
+    const regex = new RegExp(`(${query})`, 'gi');
 
-  posts.forEach(post => {
-    // Reset previous highlights
-    const paragraphs = post.querySelectorAll('p');
-    paragraphs.forEach(p => {
-      p.innerHTML = p.textContent; // remove previous mark tags
-      if (p.textContent.toLowerCase().includes(query.toLowerCase())) {
-        p.innerHTML = p.textContent.replace(regex, '<mark>$1</mark>');
-        matchFound = true;
+    posts.forEach(post => {
+      const paragraphs = post.querySelectorAll('p');
+      paragraphs.forEach(p => {
+        p.innerHTML = p.textContent; // Remove previous highlights
+        if (query && p.textContent.toLowerCase().includes(query.toLowerCase())) {
+          p.innerHTML = p.textContent.replace(regex, '<mark>$1</mark>');
+          if (!firstMatch) {
+            firstMatch = p;
+          }
+          matchFound = true;
+        }
+      });
+    });
+
+    if (!matchFound) {
+      alert("No match found.");
+    } else if (firstMatch) {
+      firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  function handleSearch() {
+    const query = document.getElementById('searchInput').value.trim();
+    searchPosts(query);
+  }
+
+  // Trigger on Enter
+  document.addEventListener('DOMContentLoaded', () => {
+    const input = document.getElementById('searchInput');
+    input.addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        handleSearch();
       }
     });
-  });
 
-  if (!matchFound) {
-    alert("No match found.");
-  }
-}
+    // Live search as you type
+    input.addEventListener('input', function () {
+      handleSearch();
+    });
+  });
 </script>
         
   <article>
