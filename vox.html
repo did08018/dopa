@@ -218,31 +218,37 @@
         <p>You can click on any post to comment.</p>
         <p>You can create a post by <a href="xcreate.html">clicking here</a></p>
 
-<input type="text" id="searchInput" placeholder="Search...">
-<button onclick="handleSearch()">Search Posts</button>
+<input type="text" id="searchInput" placeholder="Search Posts...">
+<button onclick="handleSearch()">Search</button>
+
+<style>
+  mark {
+    background-color: yellow;
+    font-weight: bold;
+  }
+</style>
 
 <script>
 function searchPosts(query) {
-    const posts = document.querySelectorAll('.post');
-    let matchFound = false;
+  const posts = document.querySelectorAll('.post');
+  let matchFound = false;
+  const regex = new RegExp(`(${query})`, 'gi'); // match all instances, case-insensitive
 
-    posts.forEach(post => {
-        if (post.textContent.toLowerCase().includes(query.toLowerCase())) {
-            matchFound = true;
-            // you could highlight or scroll to it here
-        }
+  posts.forEach(post => {
+    // Reset previous highlights
+    const paragraphs = post.querySelectorAll('p');
+    paragraphs.forEach(p => {
+      p.innerHTML = p.textContent; // remove previous mark tags
+      if (p.textContent.toLowerCase().includes(query.toLowerCase())) {
+        p.innerHTML = p.textContent.replace(regex, '<mark>$1</mark>');
+        matchFound = true;
+      }
     });
+  });
 
-    if (!matchFound) {
-        alert("No match found.");
-    }
-}
-
-function handleSearch() {
-    const query = document.getElementById('searchInput').value.trim();
-    if (query) {
-        searchPosts(query);
-    }
+  if (!matchFound) {
+    alert("No match found.");
+  }
 }
 </script>
         
