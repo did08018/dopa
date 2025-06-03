@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Finding Dopa – Yes We Will</title>
+  <meta name="description" content="Stem cell therapy offers new hope for Parkinson’s disease. A fix is on the way. Keep fighting!">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <meta name="theme-color" content="#000000">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f7f9fb;
+  color: #222;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #121212;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  background: #1a1a1a;
+  padding: 6px 10px;
+}
+
+.home-brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #007acc;
+  font-size: 1.2rem;
+}
+
+.logo-text {
+  font-family: 'PT Serif', serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: white;
+}
+
+.slider-container {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.slider-container::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  flex: 0 0 auto;
+  background: #1f1f1f;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: 'PT Serif', serif;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.3s, color 0.3s;
+}
+
+.slide:hover {
+  color: #00bfff;
+}
+
+.slide.active {
+  background: #fdfdfd;
+  color: #2e2a89;
+  border: 2px solid #2e2a89;
+}
+
+main {
+  flex: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  box-sizing: border-box;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px 0;
+  text-align: center;
+}
+
+.hero p {
+  font-size: 1rem;
+  max-width: 600px;
+  color: #2e2a89;
+  margin: 0;
+}
+
+.welcome-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #006400;
+  font-family: 'PT Serif', serif;
+  margin-top: 0;
+}
+
+.legend-section {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.legend-image {
+  max-width: 700px;
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid #2e2a89;
+  object-fit: cover;
+}
+
+.body-text-section {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+.body-text-section p {
+  margin: 1em 0;
+}
+
+.source {
+  font-style: italic;
+  color: #007acc;
+}
+
+.source a {
+  color: #2e2a89;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  padding: 12px 20px;
+  background: #1a1a1a;
+  color: white;
+  font-size: 0.85rem;
+}
+
+/* Sleek Search Box & Button */
+#searchInput {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: calc(100% - 100px);
+  max-width: 400px;
+  font-size: 1rem;
+  margin-right: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #2e2a89;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #1b1b75;
+}
+
+#noResultsMessage {
+  color: red;
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+/* Posts Styling */
+.post {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.post h2 {
+  margin-top: 0;
+  color: #2e2a89;
+  font-size: 1.3rem;
+}
+
+.post p {
+  margin: 0.5em 0;
+}
+
+.post a {
+  font-weight: bold;
+  color: #007acc;
+  text-decoration: none;
+}
+
+.post a:hover {
+  text-decoration: underline;
+}
+
+mark {
+  background-color: #ffeb3b;
+  padding: 0 3px;
+  border-radius: 3px;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <a href="index.html" class="home-brand" aria-label="Home">
+        <i class="fas fa-brain"></i>
+        <span class="logo-text">Finding Dopa</span>
+      </a>
+    </div>
+
+    <div class="slider-container">
+      <a href="fix-or-cure.html" class="slide">Fix or Cure?</a>
+      <a href="science.html" class="slide">The Science</a>
+      <a href="actors.html" class="slide">The Actors</a>
+      <a href="news.html" class="slide">Latest News</a>
+      <a href="clinical-trials.html" class="slide">Clinical Trials</a>
+      <a href="resources.html" class="slide">Resources</a>
+      <a href="about.html" class="slide">About</a>
+      <a href="disclaimer.html" class="slide">Disclaimer</a>
+    </div>
+    
+  </header>
+
+  <main>
+
+    <div class="main-content">
+
+    <section class="hero">
+      <p>A fix for Parkinson's disease is on the way. Keep fighting!</p>
+    </section>
+
+ <section class="hero">
+      <h1 class="welcome-text">Dopa VOX</h1>
+   </section>
+
+      <main>
+        <p>You can click on any post to comment.</p>
+        <p>You can create a post by <a href="xcreate.html">clicking here</a></p>
+
+<input type="text" id="searchInput" placeholder="Search Posts...">
+<button onclick="handleSearch()">Search</button>
+<div id="noResultsMessage" style="color: red; margin-top: 5px; display: none;">No results found.</div>
+
+<script>
+  function searchPosts(query) {
+    const posts = document.querySelectorAll('.post');
+    let matchFound = false;
+    let firstMatch = null;
+    const regex = new RegExp(`(${query})`, 'gi');
+
+    posts.forEach(post => {
+      const paragraphs = post.querySelectorAll('p');
+      paragraphs.forEach(p => {
+        p.innerHTML = p.textContent; // reset any highlights
+        if (query && p.textContent.toLowerCase().includes(query.toLowerCase())) {
+          p.innerHTML = p.textContent.replace(regex, '<mark>$1</mark>');
+          if (!firstMatch) firstMatch = p;
+          matchFound = true;
+        }
+      });
+    });
+
+    const messageBox = document.getElementById('noResultsMessage');
+    if (query && !matchFound) {
+      messageBox.style.display = 'block';
+    } else {
+      messageBox.style.display = 'none';
+    }
+
+    if (firstMatch) {
+      firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  function handleSearch() {
+    const query = document.getElementById('searchInput').value.trim();
+    searchPosts(query);
+  }
+
+  // Trigger on Enter key
+  document.addEventListener('DOMContentLoaded', () => {
+    const input = document.getElementById('searchInput');
+    input.addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        handleSearch();
+      }
+    });
+  });
+</script>
+        
+  <article>
+    <div class="post">
+     <h2>Latest Posts:</h2>
+    <p>03 June 2025 - User did08018: <a href="xpost0002.html">I take propanolol when needed and it helps.</a></p>
+    <p>02 June 2025 - User did08018: <a href="xpost0001.html">I know Levodopa Cardibopa doesn't precipitate the apparition of dyskenesia but I still won't start taking it.</a></p>
+    </div>
+  </article>
+
+  <!-- Giscus comments for a post -->
+   <!-- <section>
+      <h3>Comments</h3>
+      <script src="https://giscus.app/client.js"
+        data-repo="did08018/dopa"
+        data-repo-id="REPO_ID"
+        data-category="General"
+        data-category-id="CATEGORY_ID"
+        data-mapping="specific"
+        data-term="post-2-unique-identifier"
+        data-theme="light"
+        crossorigin="anonymous"
+        async>
+      </script>
+    </section>-->
+</main>
+
+  <footer>
+    &copy; 2025 Finding Dopa. All rights reserved.
+  </footer>
+
+  <script>
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll('.slide').forEach(slide => {
+      if (slide.getAttribute('href') === currentPage) {
+        slide.classList.add('active');
+      }
+    });
+  </script>
+
+<!--<script src="https://giscus.app/client.js"
+        data-repo="did08018/dopa"
+        data-repo-id="R_kgDOOzt1Dg"
+        data-category="General"
+        data-category-id="DIC_kwDOOzt1Ds4Cq2gw"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="1"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>-->
+
+      <script>
+function handleSearch() {
+  const query = document.getElementById('searchInput').value.trim();
+  if (query) {
+    searchPosts(query);
+  }
+}
+</script>
+        
+</body>
+</html>
