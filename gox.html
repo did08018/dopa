@@ -144,13 +144,38 @@
       max-width: 800px;
     }
 
-    .hero-stripe p.tagline {
-      font-size: clamp(1rem, 2.5vw, 1.3rem); /* Responsive tagline */
+    .hero-stripe2 {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      justify-content: left;
+      padding: 40px 20px;
+      text-align: left;
+      color: var(--white-text);
+      overflow: hidden; /* Important for background effects */
+      z-index: 5; /* Below header, above main content card */
+    }
+
+    .hero-stripe2 h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem); /* Responsive font size */
+      font-weight: 900; /* Extra bold */
+      line-height: 1.1;
+      margin: 0;
+      margin: 0 0 20px 0;
+      color: var(--white-text);
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for text readability */
+      max-width: 800px;
+    }
+
+   /* .hero-stripe p.tagline {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
       font-weight: 400;
       max-width: 600px;
       margin-bottom: 40px;
       opacity: 0.9;
-    }
+    }*/
 
     .hero-buttons {
       display: flex;
@@ -404,7 +429,7 @@
   </section>
 
   <main>
-<section class="hero-stripe">
+<section class="hero-stripe2">
       <h1 class="welcome-text">Dopa VOX<br>Community Forum</h1>
 </section>
     
