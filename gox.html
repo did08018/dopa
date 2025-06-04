@@ -8,270 +8,301 @@
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/favicon.png">
   <meta name="theme-color" content="#000000">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(135deg, #f6f9fc 0%, #eef2f6 50%, #f6f9fc 100%);
-  color: #0a2540;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
+    :root {
+      --stripe-blue: #007bff; /* A vibrant blue, similar to Stripe's accent colors */
+      --text-dark: #2c2d30;
+      --text-medium: #525458;
+      --background-light: #f6f9fc;
+      --border-light: #e0e6ed;
+      --shadow-light: rgba(50, 50, 93, 0.05) 0px 2px 5px -1px, rgba(0, 0, 0, 0.02) 0px 1px 3px -1px;
+    }
 
-/* Top bar: unchanged, but refined */
-header {
-  background: #0a2540;
-  box-shadow: 0 2px 8px rgba(20,30,48,0.04);
-}
-.top-bar {
-  display: flex;
-  align-items: center;
-  background: transparent;
-  padding: 12px 24px;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-  box-sizing: border-box;
-}
-.home-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  color: #635bff;
-  font-size: 1.3rem;
-}
-.logo-text {
-  font-family: 'PT Serif', serif;
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: white;
-  letter-spacing: -1px;
-}
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif; /* Modern sans-serif font */
+      background: var(--background-light);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
 
-/* Slider: unchanged, but refined */
-.slider-container {
-  width: 100%;
-  display: flex;
-  gap: 12px;
-  padding: 12px 24px;
-  overflow-x: auto;
-  background: #fff;
-  border-bottom: 1px solid #e3e8ee;
-  scrollbar-width: none;
-  max-width: 1200px;
-  margin: 0 auto;
-  box-sizing: border-box;
-}
-.slider-container::-webkit-scrollbar { display: none; }
-.slide {
-  flex: 0 0 auto;
-  background: transparent;
-  color: #0a2540;
-  padding: 7px 18px;
-  border-radius: 999px;
-  font-size: 1rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: background 0.2s, color 0.2s;
-  border: none;
-}
-.slide:hover {
-  background: #f6f9fc;
-  color: #635bff;
-}
-.slide.active {
-  background: #635bff;
-  color: #fff;
-  font-weight: 700;
-  box-shadow: 0 2px 8px rgba(99,91,255,0.07);
-  border: none;
-}
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
-/* Main content: centered, spacious, but tight outside */
-main {
-  flex: 1;
-  max-width: 700px;
-  margin: 32px auto;
-  padding: 48px 32px;
-  box-sizing: border-box;
-  background: #fff;
-  border-radius: 24px;
-  box-shadow: 0 8px 32px 0 rgba(50,50,93,0.07);
-  width: calc(100% - 40px);
-}
-.main-content {
-  width: 100%;
-}
+    header {
+      background-color: #121212;
+      box-shadow: var(--shadow-light);
+      position: sticky; /* Make header sticky */
+      top: 0;
+      z-index: 1000;
+    }
 
-/* Hero section: modern, spacious, aligned */
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0 0 24px 0;
-  text-align: center;
-  gap: 0.25em;
-}
-.hero p {
-  font-size: 1.2rem;
-  max-width: 600px;
-  margin: 0 0 5px 0;
-  padding: 0;
-  color: #635bff;
-  letter-spacing: 0.01em;
-  font-weight: 500;
-}
-.welcome-text {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #0a2540;
-  font-family: 'PT Serif', serif;
-  margin: 0;
-  letter-spacing: -2px;
-  line-height: 1.1;
-}
+    .top-bar {
+      display: flex;
+      align-items: center;
+      background: #1a1a1a;
+      padding: 6px 10px;
+    }
 
-/* Posts and content: sleek, aligned */
-article, .body-text-section {
-  width: 100%;
-  text-align: left;
-  font-size: 1.15rem;
-  line-height: 1.7;
-  color: #222;
-}
-article p, .body-text-section p {
-  margin: 1em 0;
-}
-.post h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #0a2540;
-  margin-bottom: 0.5em;
-}
-.post a {
-  color: #635bff;
-  text-decoration: underline;
-  transition: color 0.2s;
-}
-.post a:hover {
-  color: #00b87c;
-}
+    .home-brand {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      color: #007acc;
+      font-size: 1.2rem;
+    }
 
-/* Search box: modern, aligned */
-#searchInput {
-  padding: 12px 18px;
-  border-radius: 999px;
-  border: 1px solid #e3e8ee;
-  font-size: 1rem;
-  outline: none;
-  margin-right: 8px;
-  background: #f6f9fc;
-  transition: border 0.2s;
-  width: 60%;
-  max-width: 400px;
-}
-#searchInput:focus {
-  border-color: #635bff;
-}
-button {
-  padding: 12px 24px;
-  border-radius: 999px;
-  border: none;
-  background: linear-gradient(90deg, #635bff 60%, #00b87c 100%);
-  color: #fff;
-  font-weight: 700;
-  font-size: 1rem;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(99,91,255,0.07);
-  transition: background 0.2s, box-shadow 0.2s;
-}
-button:hover {
-  background: linear-gradient(90deg, #00b87c 60%, #635bff 100%);
-  box-shadow: 0 4px 12px rgba(0,184,124,0.1);
-}
+    .logo-text {
+      font-family: 'PT Serif', serif;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: white;
+    }
 
-/* Misc: images, sources, footer */
-.legend-section {
-  text-align: center;
-  margin: 24px 0;
-}
-.legend-image {
-  max-width: 700px;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 16px;
-  border: 2px solid #635bff;
-  box-shadow: 0 4px 16px rgba(99,91,255,0.08);
-}
-.source {
-  font-style: italic;
-  color: #635bff;
-  font-size: 0.95rem;
-}
-.source a {
-  color: #00b87c;
-  font-weight: bold;
-  text-decoration: none;
-}
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #0a2540;
-  color: #fff;
-  font-size: 0.95rem;
-  border-radius: 0 0 24px 24px;
-  width: 100%;
-  box-sizing: border-box;
-}
-mark {
-  background: #fff3b0;
-  color: #0a2540;
-  font-weight: bold;
-  border-radius: 4px;
-  padding: 0 2px;
-}
+    .slider-container {
+      width: 100%;
+      display: flex;
+      gap: 10px;
+      padding: 10px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
 
-/* Mobile responsiveness */
-@media (max-width: 700px) {
-  main {
-    margin: 16px auto;
-    padding: 32px 16px;
-    width: calc(100% - 32px);
-    border-radius: 16px;
-  }
-  .slider-container, .top-bar {
-    padding: 8px 16px;
-  }
-  .hero p {
-    font-size: 1.1rem;
-  }
-  .welcome-text {
-    font-size: 2.2rem;
-  }
-  #searchInput {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 8px;
-  }
-  button {
-    width: 100%;
-  }
-}
-</style>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=PT+Serif:wght@700&display=swap" rel="stylesheet">
+    .slider-container::-webkit-scrollbar {
+      display: none;
+    }
 
+    .slide {
+      flex: 0 0 auto;
+      background: #1f1f1f;
+      color: white;
+      padding: 5px 12px; /* Slightly more padding */
+      border-radius: 6px; /* Slightly less rounded */
+      white-space: nowrap;
+      font-size: 0.9rem; /* Slightly smaller font */
+      font-family: 'Inter', sans-serif; /* Change font to Inter */
+      font-weight: 500; /* Medium weight */
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .slide:hover {
+      color: #00bfff;
+      background-color: #2a2a2a;
+    }
+
+    .slide.active {
+      background: var(--stripe-blue); /* Use Stripe blue for active */
+      color: white;
+      border: 2px solid var(--stripe-blue);
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    }
+
+    main {
+      flex: 1;
+      max-width: 900px;
+      margin: 20px auto; /* Add margin to separate from header/footer */
+      padding: 20px;
+      box-sizing: border-box;
+      background: #ffffff; /* White background for main content */
+      border-radius: 12px;
+      box-shadow: var(--shadow-light);
+    }
+
+    .main-content {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0; /* Remove top padding as it's handled by main */
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px; /* More breathing room */
+      margin-bottom: 30px; /* More breathing room */
+      text-align: center;
+    }
+
+    .hero p {
+      font-size: 1.1rem; /* Larger and more prominent */
+      max-width: 600px;
+      margin: 0;
+      padding: 0;
+      color: var(--text-medium); /* Softer text color */
+      font-weight: 400;
+    }
+    
+    .welcome-text {
+      font-size: 2.8rem; /* Larger and bolder */
+      font-weight: 700; /* Extra bold */
+      color: #2e2a89; /* Keep the existing blue for this specific element, or consider var(--stripe-blue) */
+      font-family: 'PT Serif', serif;
+      margin-top: 10px; /* More space below hero text */
+      margin-bottom: 20px;
+    }
+
+    .legend-section {
+      text-align: center;
+      margin-bottom: 30px; /* More space */
+    }
+
+    .legend-image {
+      max-width: 100%; /* Ensure it's responsive */
+      height: auto; /* Maintain aspect ratio */
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid var(--border-light); /* Softer border */
+      box-shadow: var(--shadow-light);
+    }
+
+    .body-text-section {
+      text-align: left;
+      font-size: 1.05rem; /* Slightly larger text */
+      line-height: 1.7; /* More generous line height */
+      color: var(--text-dark);
+      margin-top: 20px;
+    }
+
+    .body-text-section p {
+      margin: 1.5em 0; /* More vertical rhythm */
+    }
+
+    .source {
+      font-style: italic;
+      color: var(--text-medium);
+      font-size: 0.9rem;
+    }
+
+    .source a {
+      color: var(--stripe-blue);
+      font-weight: 600; /* Slightly bolder */
+      text-decoration: none;
+      transition: color 0.2s ease-in-out;
+    }
+
+    .source a:hover {
+      color: #0056b3;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px; /* More padding */
+      background: #1a1a1a;
+      color: rgba(255, 255, 255, 0.7); /* Softer white */
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    mark {
+      background-color: #ffda6a; /* Softer highlight color */
+      font-weight: 600;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+
+    /* Input and Button Styling */
+    input[type="text"] {
+      padding: 12px 15px;
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      font-size: 1rem;
+      width: calc(100% - 130px); /* Adjust width for button */
+      margin-right: 10px;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+      transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      border-color: var(--stripe-blue);
+      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    }
+
+    button {
+      padding: 12px 20px;
+      background-color: var(--stripe-blue);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      transform: translateY(-1px);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    #noResultsMessage {
+      font-size: 0.95rem;
+      color: #dc3545; /* Bootstrap red */
+      margin-top: 10px;
+      font-weight: 500;
+    }
+
+    /* Post Styling */
+    .post {
+      margin-top: 25px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .post h2 {
+      font-size: 1.5rem;
+      color: var(--text-dark);
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .post p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .post p a {
+      color: var(--stripe-blue);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease-in-out;
+    }
+
+    .post p a:hover {
+      color: #0056b3;
+      text-decoration: underline;
+    }
+
+    /* General text enhancements */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Inter', sans-serif;
+        color: var(--text-dark);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+    }
+
+    p {
+        color: var(--text-medium);
+    }
+
+  </style>
 </head>
 <body>
   <header>
@@ -292,85 +323,107 @@ mark {
       <a href="about.html" class="slide">About</a>
       <a href="disclaimer.html" class="slide">Disclaimer</a>
     </div>
+    
   </header>
 
   <main>
+
     <div class="main-content">
-      <section class="hero">
-        <p>A fix for Parkinson's disease is on the way. Keep fighting!</p>
-      </section>
 
-      <section class="hero">
-        <h1 class="welcome-text">Dopa VOX</h1>
-      </section>
+    <section class="hero">
+      <p>A fix for Parkinson's disease is on the way. Keep fighting!</p>
+    </section>
 
-      <div class="body-text-section">
+ <section class="hero">
+      <h1 class="welcome-text">Dopa VOX</h1>
+   </section>
+
         <p>You can click on any post to comment.</p>
         <p>You can create a post by <a href="xcreate.html">clicking here</a></p>
-      </div>
 
-      <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Search Posts...">
-        <button id="searchButton" onclick="handleSearch()">Search</button>
-      </div>
-      <div id="noResultsMessage">No results found.</div>
+<input type="text" id="searchInput" placeholder="Search Posts...">
+<button onclick="handleSearch()">Search</button>
+<div id="noResultsMessage" style="color: red; margin-top: 5px; display: none;">No results found.</div>
 
-      <article class="post">
-        <h2>Latest Posts:</h2>
-        <p>03 June 2025 - User did08018: <a href="xpost0002.html">I take propanolol when needed and it helps.</a></p>
-        <p>02 June 2025 - User did08018: <a href="xpost0001.html">I know Levodopa Cardibopa doesn't precipitate the apparition of dyskenesia but I still won't start taking it.</a></p>
-      </article>
-    </div>
-  </main>
+<script>
+  function searchPosts(query) {
+    const posts = document.querySelectorAll('.post');
+    let matchFound = false;
+    let firstMatch = null;
+    const regex = new RegExp(`(${query})`, 'gi');
 
-  <footer>
-    © 2025 Finding Dopa. All rights reserved.
-  </footer>
-
-  <script>
-    function searchPosts(query) {
-      const posts = document.querySelectorAll('.post');
-      let matchFound = false;
-      let firstMatch = null;
-      const regex = new RegExp(`(${query})`, 'gi');
-
-      posts.forEach(post => {
-        const paragraphs = post.querySelectorAll('p');
-        paragraphs.forEach(p => {
-          p.innerHTML = p.textContent; // reset any highlights
-          if (query && p.textContent.toLowerCase().includes(query.toLowerCase())) {
-            p.innerHTML = p.textContent.replace(regex, '<mark>$1</mark>');
-            if (!firstMatch) firstMatch = p;
-            matchFound = true;
-          }
-        });
-      });
-
-      const messageBox = document.getElementById('noResultsMessage');
-      if (query && !matchFound) {
-        messageBox.style.display = 'block';
-      } else {
-        messageBox.style.display = 'none';
-      }
-
-      if (firstMatch) {
-        firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    }
-
-    function handleSearch() {
-      const query = document.getElementById('searchInput').value.trim();
-      searchPosts(query);
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const input = document.getElementById('searchInput');
-      input.addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') {
-          handleSearch();
+    posts.forEach(post => {
+      const paragraphs = post.querySelectorAll('p');
+      paragraphs.forEach(p => {
+        p.innerHTML = p.textContent; // reset any highlights
+        if (query && p.textContent.toLowerCase().includes(query.toLowerCase())) {
+          p.innerHTML = p.textContent.replace(regex, '<mark>$1</mark>');
+          if (!firstMatch) firstMatch = p;
+          matchFound = true;
         }
       });
     });
+
+    const messageBox = document.getElementById('noResultsMessage');
+    if (query && !matchFound) {
+      messageBox.style.display = 'block';
+    } else {
+      messageBox.style.display = 'none';
+    }
+
+    if (firstMatch) {
+      firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  function handleSearch() {
+    const query = document.getElementById('searchInput').value.trim();
+    searchPosts(query);
+  }
+
+  // Trigger on Enter key
+  document.addEventListener('DOMContentLoaded', () => {
+    const input = document.getElementById('searchInput');
+    input.addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        handleSearch();
+      }
+    });
+  });
+</script>
+        
+  <article>
+    <div class="post">
+     <h2>Latest Posts:</h2>
+    <p>03 June 2025 - User did08018: <a href="xpost0002.html">I take propanolol when needed and it helps.</a></p>
+    <p>02 June 2025 - User did08018: <a href="xpost0001.html">I know Levodopa Cardibopa doesn't precipitate the apparition of dyskenesia but I still won't start taking it.</a></p>
+    </div>
+  </article>
+
+  </div> </main>
+
+  <footer>
+    &copy; 2025 Finding Dopa. All rights reserved.
+  </footer>
+
+  <script>
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll('.slide').forEach(slide => {
+      if (slide.getAttribute('href') === currentPage) {
+        slide.classList.add('active');
+      }
+    });
   </script>
+
+<script>
+function handleSearch() {
+  const query = document.getElementById('searchInput').value.trim();
+  if (query) {
+    searchPosts(query);
+  }
+}
+</script>
+        
 </body>
 </html>
