@@ -131,16 +131,16 @@
   justify-content: center;
 }
 
-    .hero-stripe h1 {
+   /* .hero-stripe h1 {
       font-family: 'Inter', sans-serif;
-      font-size: clamp(2.5rem, 6vw, 4.5rem); /* Responsive font size */
-      font-weight: 900; /* Extra bold */
+      font-size: clamp(2.5rem, 6vw, 4.5rem); 
+      font-weight: 900; 
       line-height: 1.1;
       margin-bottom: 10px;
       color: var(--white-text);
-      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for text readability */
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
       max-width: 300px;
-    }
+    }*/
 
    /* .hero-stripe p.tagline {
       font-size: clamp(1rem, 2.5vw, 1.3rem);
@@ -150,6 +150,30 @@
       opacity: 0.9;
     } */
 
+/* Adjust "A fix for Parkinson's…" to move upward */
+.hero-stripe h1 {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 10px;
+  color: var(--white-text);
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  max-width: 300px;
+  margin-top: -20px; /* Added to move the h1 upward */
+}
+
+/* Adjust "Dopa VOX" to move downward */
+.welcome-text:first-of-type {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--stripe-blue-dark);
+  font-family: 'PT Serif', serif;
+  margin: 20px 0 25px 0;
+  text-align: center;
+  margin-top: 40px; /* Increased to move "Dopa VOX" downward */
+}
+    
     .hero-buttons {
       display: flex;
       gap: 15px;
@@ -217,14 +241,14 @@
       padding: 0;
     }
 
-    .welcome-text {
-      font-size: 2.5rem; /* Slightly adjusted for consistency */
+    /*.welcome-text {
+      font-size: 2.5rem; 
       font-weight: 700;
-      color: var(--stripe-blue-dark); /* Using Stripe blue for this heading */
-      font-family: 'PT Serif', serif; /* Keep serif for this */
-      margin: 20px 0 25px 0; /* More spacing */
+      color: var(--stripe-blue-dark); 
+      font-family: 'PT Serif', serif; 
+      margin: 20px 0 25px 0; 
       text-align: center;
-    }
+    }*/
 
     .legend-section {
       text-align: center;
