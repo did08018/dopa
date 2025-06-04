@@ -199,19 +199,19 @@
       font-size: 0.9em;
     }
 
-    /* --- Main Content Area - Overlapping Effect --- */
+
     main {
-      flex: 1;
-      max-width: 900px;
-      margin: -150px auto 20px auto; /* Negative margin to overlap hero */
-      padding: 30px; /* Increased padding */
-      box-sizing: border-box;
-      background: #ffffff; /* White background for main content card */
-      border-radius: 16px; /* More rounded corners */
-      box-shadow: var(--shadow-subtle); /* Subtle shadow */
-      position: relative; /* For z-index */
-      z-index: 10; /* Ensure it's above the hero's lower part */
-    }
+  flex: 1;
+  max-width: 900px;
+  margin: -120px auto 30px auto; /* Less negative overlap, more bottom spacing */
+  padding: 20px 25px; /* Slightly tighter padding */
+  box-sizing: border-box;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: var(--shadow-subtle);
+  position: relative;
+  z-index: 10;
+}
 
     .main-content {
       max-width: 700px; /* Inner constraint for content width */
