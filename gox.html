@@ -117,45 +117,42 @@
       border: 1px solid var(--stripe-blue-dark); /* Solid border for active */
     }
 
+    /* --- Stripe-inspired Hero Section --- */
     .hero-stripe {
-  position: relative;
-  background: linear-gradient(135deg, var(--stripe-gradient-start) 0%, var(--stripe-gradient-end) 100%);
-  padding: 60px 10px 60px 50px; /* top/bottom spacing */
-  text-align: left;
-  color: var(--white-text);
-  overflow: hidden;
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-}
+      position: relative;
+      background: linear-gradient(135deg, var(--stripe-gradient-start) 0%, var(--stripe-gradient-end) 100%);
+      min-height: 450px; /* Adjust height as needed */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--white-text);
+      overflow: hidden; /* Important for background effects */
+      z-index: 5; /* Below header, above main content card */
+    }
 
+    .hero-stripe h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem); /* Responsive font size */
+      font-weight: 900; /* Extra bold */
+      line-height: 1.1;
+      margin: 0;
+      margin-bottom: 20px;
+      color: var(--white-text);
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for text readability */
+      max-width: 800px;
+    }
 
+    .hero-stripe p.tagline {
+      font-size: clamp(1rem, 2.5vw, 1.3rem); /* Responsive tagline */
+      font-weight: 400;
+      max-width: 600px;
+      margin-bottom: 40px;
+      opacity: 0.9;
+    }
 
-/* Adjust "A fix for Parkinson's…" to move upward more */
-.hero-stripe h1 {
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 900;
-  line-height: 1.1;
-  margin-bottom: 10px;
-  color: var(--white-text);
-  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  max-width: 300px;
-  margin-top: -40px; /* Increased from -20px to -40px for more upward movement */
-}
-
-/* Adjust "Dopa VOX" to move downward more */
-.welcome-text:first-of-type {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--stripe-blue-dark);
-  font-family: 'PT Serif', serif;
-  margin: 40px 0 25px 0; /* Changed from 20px to 40px margin-top */
-  text-align: center;
-}
-    
     .hero-buttons {
       display: flex;
       gap: 15px;
@@ -203,19 +200,19 @@
       font-size: 0.9em;
     }
 
-
+    /* --- Main Content Area - Overlapping Effect --- */
     main {
-  flex: 1;
-  max-width: 900px;
-  margin: -120px auto 30px auto; /* Less negative overlap, more bottom spacing */
-  padding: 20px 25px; /* Slightly tighter padding */
-  box-sizing: border-box;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: var(--shadow-subtle);
-  position: relative;
-  z-index: 10;
-}
+      flex: 1;
+      max-width: 900px;
+      margin: -150px auto 20px auto; /* Negative margin to overlap hero */
+      padding: 30px; /* Increased padding */
+      box-sizing: border-box;
+      background: #ffffff; /* White background for main content card */
+      border-radius: 16px; /* More rounded corners */
+      box-shadow: var(--shadow-subtle); /* Subtle shadow */
+      position: relative; /* For z-index */
+      z-index: 10; /* Ensure it's above the hero's lower part */
+    }
 
     .main-content {
       max-width: 700px; /* Inner constraint for content width */
@@ -223,6 +220,14 @@
       padding: 0;
     }
 
+    .welcome-text {
+      font-size: 2.5rem; /* Slightly adjusted for consistency */
+      font-weight: 700;
+      color: var(--stripe-blue-dark); /* Using Stripe blue for this heading */
+      font-family: 'PT Serif', serif; /* Keep serif for this */
+      margin: 20px 0 25px 0; /* More spacing */
+      text-align: center;
+    }
 
     .legend-section {
       text-align: center;
@@ -396,13 +401,24 @@
     </div>
   </header>
 
-<main>
   <section class="hero-stripe">
     <h1>A fix for Parkinson's disease is on the way. Keep fighting!</h1>
+    <!--<p class="tagline">Join the global community pushing for breakthroughs and supporting every fight against Parkinson's disease.</p>
+    <div class="hero-buttons">
+      <a href="#" class="hero-button primary">
+        Explore Treatments <i class="fas fa-arrow-right"></i>
+      </a>
+      <a href="#" class="hero-button secondary">
+        Get Involved <i class="fas fa-hand-holding-heart"></i>
+      </a>
+    </div> -->
   </section>
 
-  
-    <div class="main-content">
+  <main>
+    <!--<div class="main-content">
+      <p style="text-align: center; font-size: 1.1rem; color: var(--text-dark); margin-bottom: 30px;">
+        A fix for Parkinson's disease is on the way. Keep fighting!
+      </p>-->
 
       <h3 class="welcome-text">Dopa VOX</h3>
       <h1 class="welcome-text">Community Forum</h1>
@@ -423,8 +439,7 @@
           <p>02 June 2025 - User did08018: <a href="xpost0001.html">I know Levodopa Cardibopa doesn't precipitate the apparition of dyskenesia but I still won't start taking it.</a></p>
         </div>
       </article>
-    </div> 
-  </main>
+    </div> </main>
 
   <footer>
     &copy; 2025 Finding Dopa. All rights reserved.
