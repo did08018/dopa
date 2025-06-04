@@ -8,23 +8,30 @@
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/favicon.png">
   <meta name="theme-color" content="#000000">
-  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
+    /* Define Stripe-inspired color variables */
     :root {
-      --stripe-blue: #007bff; /* A vibrant blue, similar to Stripe's accent colors */
+      --stripe-blue-dark: #0070e6; /* A strong blue, similar to Stripe's main blue */
+      --stripe-gradient-start: #6a11cb; /* Deeper purple */
+      --stripe-gradient-end: #2575fc; /* Vibrant blue */
       --text-dark: #2c2d30;
       --text-medium: #525458;
-      --background-light: #f6f9fc;
+      --background-light: #f6f9fc; /* Very light gray */
       --border-light: #e0e6ed;
-      --shadow-light: rgba(50, 50, 93, 0.05) 0px 2px 5px -1px, rgba(0, 0, 0, 0.02) 0px 1px 3px -1px;
+      --shadow-subtle: rgba(50, 50, 93, 0.05) 0px 2px 5px -1px, rgba(0, 0, 0, 0.02) 0px 1px 3px -1px;
+      --white-text: #ffffff;
+      --dark-header-bg: #1a1a1a; /* Dark background for header */
+      --dark-slide-bg: #2a2a2a; /* Slightly lighter dark for slides */
+      --dark-slide-hover-bg: #3a3a3a;
     }
 
     html, body {
       margin: 0;
       padding: 0;
-      font-family: 'Inter', sans-serif; /* Modern sans-serif font */
+      font-family: 'Inter', sans-serif;
       background: var(--background-light);
       color: var(--text-dark);
       overflow-x: hidden;
@@ -37,19 +44,20 @@
       min-height: 100vh;
     }
 
+    /* --- Header & Slider - Keeping sizes/positions identical, changing colors --- */
     header {
-      background-color: #121212;
-      box-shadow: var(--shadow-light);
-      position: sticky; /* Make header sticky */
-      top: 0;
-      z-index: 1000;
+      background-color: var(--dark-header-bg); /* Darker header */
+      box-shadow: none; /* No shadow on header itself, gradient hero will dominate */
+      position: relative; /* Relative for z-index context */
+      z-index: 10; /* Ensure header is above other elements if needed */
     }
 
     .top-bar {
       display: flex;
       align-items: center;
-      background: #1a1a1a;
-      padding: 6px 10px;
+      background: var(--dark-header-bg); /* Identical to header bg */
+      padding: 6px 10px; /* Preserve padding */
+      border-bottom: 1px solid rgba(255,255,255,0.08); /* Subtle separator */
     }
 
     .home-brand {
@@ -57,25 +65,26 @@
       align-items: center;
       gap: 6px;
       text-decoration: none;
-      color: #007acc;
-      font-size: 1.2rem;
+      color: #007acc; /* Keep original link color or change if desired */
+      font-size: 1.2rem; /* Preserve size */
     }
 
     .logo-text {
       font-family: 'PT Serif', serif;
       font-weight: 700;
-      font-size: 1.3rem;
-      color: white;
+      font-size: 1.3rem; /* Preserve size */
+      color: var(--white-text); /* White logo text */
     }
 
     .slider-container {
       width: 100%;
       display: flex;
-      gap: 10px;
-      padding: 10px;
+      gap: 10px; /* Preserve gap */
+      padding: 10px; /* Preserve padding */
       overflow-x: auto;
       scrollbar-width: none;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      background: var(--dark-header-bg); /* Consistent dark background */
+      border-bottom: 1px solid rgba(255,255,255,0.08); /* Subtle separator */
     }
 
     .slider-container::-webkit-scrollbar {
@@ -84,100 +93,165 @@
 
     .slide {
       flex: 0 0 auto;
-      background: #1f1f1f;
-      color: white;
-      padding: 5px 12px; /* Slightly more padding */
-      border-radius: 6px; /* Slightly less rounded */
+      background: var(--dark-slide-bg); /* Darker slide background */
+      color: rgba(255, 255, 255, 0.8); /* Softer white for text */
+      padding: 5px 10px; /* Preserve padding */
+      border-radius: 8px; /* Preserve border-radius */
       white-space: nowrap;
-      font-size: 0.9rem; /* Slightly smaller font */
-      font-family: 'Inter', sans-serif; /* Change font to Inter */
-      font-weight: 500; /* Medium weight */
+      font-size: 0.95rem; /* Preserve font size */
+      font-family: 'Inter', sans-serif; /* Changed to Inter for consistency */
       text-decoration: none;
       text-align: center;
       transition: all 0.2s ease-in-out;
+      border: 1px solid transparent; /* Subtle border for consistency */
     }
 
     .slide:hover {
-      color: #00bfff;
-      background-color: #2a2a2a;
+      color: #00bfff; /* Keep original hover color */
+      background-color: var(--dark-slide-hover-bg); /* Darker hover background */
     }
 
     .slide.active {
-      background: var(--stripe-blue); /* Use Stripe blue for active */
-      color: white;
-      border: 2px solid var(--stripe-blue);
-      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+      background: var(--stripe-blue-dark); /* Stripe blue for active */
+      color: var(--white-text);
+      border: 1px solid var(--stripe-blue-dark); /* Solid border for active */
     }
 
-    main {
-      flex: 1;
-      max-width: 900px;
-      margin: 20px auto; /* Add margin to separate from header/footer */
-      padding: 20px;
-      box-sizing: border-box;
-      background: #ffffff; /* White background for main content */
-      border-radius: 12px;
-      box-shadow: var(--shadow-light);
-    }
-
-    .main-content {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 0; /* Remove top padding as it's handled by main */
-    }
-
-    .hero {
+    /* --- Stripe-inspired Hero Section --- */
+    .hero-stripe {
+      position: relative;
+      background: linear-gradient(135deg, var(--stripe-gradient-start) 0%, var(--stripe-gradient-end) 100%);
+      min-height: 450px; /* Adjust height as needed */
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-top: 20px; /* More breathing room */
-      margin-bottom: 30px; /* More breathing room */
+      padding: 40px 20px;
       text-align: center;
+      color: var(--white-text);
+      overflow: hidden; /* Important for background effects */
+      z-index: 5; /* Below header, above main content card */
     }
 
-    .hero p {
-      font-size: 1.1rem; /* Larger and more prominent */
-      max-width: 600px;
-      margin: 0;
-      padding: 0;
-      color: var(--text-medium); /* Softer text color */
-      font-weight: 400;
-    }
-    
-    .welcome-text {
-      font-size: 2.8rem; /* Larger and bolder */
-      font-weight: 700; /* Extra bold */
-      color: #2e2a89; /* Keep the existing blue for this specific element, or consider var(--stripe-blue) */
-      font-family: 'PT Serif', serif;
-      margin-top: 10px; /* More space below hero text */
+    .hero-stripe h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem); /* Responsive font size */
+      font-weight: 900; /* Extra bold */
+      line-height: 1.1;
       margin-bottom: 20px;
+      color: var(--white-text);
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for text readability */
+      max-width: 800px;
+    }
+
+    .hero-stripe p.tagline {
+      font-size: clamp(1rem, 2.5vw, 1.3rem); /* Responsive tagline */
+      font-weight: 400;
+      max-width: 600px;
+      margin-bottom: 40px;
+      opacity: 0.9;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px; /* Space from tagline */
+    }
+
+    .hero-button {
+      display: inline-flex;
+      align-items: center;
+      padding: 14px 25px;
+      border-radius: 9999px; /* Pill shape */
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .hero-button.primary {
+      background-color: var(--white-text);
+      color: var(--stripe-blue-dark);
+      border: none;
+    }
+
+    .hero-button.primary:hover {
+      background-color: #f0f0f0;
+      transform: translateY(-2px);
+    }
+
+    .hero-button.secondary {
+      background-color: transparent;
+      color: var(--white-text);
+      border: 2px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .hero-button.secondary:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: var(--white-text);
+      transform: translateY(-2px);
+    }
+
+    .hero-button i {
+      margin-left: 8px;
+      font-size: 0.9em;
+    }
+
+    /* --- Main Content Area - Overlapping Effect --- */
+    main {
+      flex: 1;
+      max-width: 900px;
+      margin: -150px auto 20px auto; /* Negative margin to overlap hero */
+      padding: 30px; /* Increased padding */
+      box-sizing: border-box;
+      background: #ffffff; /* White background for main content card */
+      border-radius: 16px; /* More rounded corners */
+      box-shadow: var(--shadow-subtle); /* Subtle shadow */
+      position: relative; /* For z-index */
+      z-index: 10; /* Ensure it's above the hero's lower part */
+    }
+
+    .main-content {
+      max-width: 700px; /* Inner constraint for content width */
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .welcome-text {
+      font-size: 2.5rem; /* Slightly adjusted for consistency */
+      font-weight: 700;
+      color: var(--stripe-blue-dark); /* Using Stripe blue for this heading */
+      font-family: 'PT Serif', serif; /* Keep serif for this */
+      margin: 20px 0 25px 0; /* More spacing */
+      text-align: center;
     }
 
     .legend-section {
       text-align: center;
-      margin-bottom: 30px; /* More space */
+      margin-bottom: 40px; /* More space */
     }
 
     .legend-image {
-      max-width: 100%; /* Ensure it's responsive */
-      height: auto; /* Maintain aspect ratio */
+      max-width: 100%;
+      height: auto;
       object-fit: cover;
       border-radius: 12px;
-      border: 1px solid var(--border-light); /* Softer border */
-      box-shadow: var(--shadow-light);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-subtle);
     }
 
     .body-text-section {
       text-align: left;
-      font-size: 1.05rem; /* Slightly larger text */
-      line-height: 1.7; /* More generous line height */
+      font-size: 1.05rem;
+      line-height: 1.7;
       color: var(--text-dark);
       margin-top: 20px;
     }
 
     .body-text-section p {
-      margin: 1.5em 0; /* More vertical rhythm */
+      margin: 1.5em 0;
     }
 
     .source {
@@ -187,8 +261,8 @@
     }
 
     .source a {
-      color: var(--stripe-blue);
-      font-weight: 600; /* Slightly bolder */
+      color: var(--stripe-blue-dark);
+      font-weight: 600;
       text-decoration: none;
       transition: color 0.2s ease-in-out;
     }
@@ -199,27 +273,28 @@
 
     footer {
       text-align: center;
-      padding: 20px; /* More padding */
-      background: #1a1a1a;
-      color: rgba(255, 255, 255, 0.7); /* Softer white */
+      padding: 25px 20px;
+      background: var(--dark-header-bg); /* Consistent dark footer */
+      color: rgba(255, 255, 255, 0.7);
       font-size: 0.85rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 40px; /* Space between content and footer */
     }
 
     mark {
-      background-color: #ffda6a; /* Softer highlight color */
+      background-color: #ffda6a;
       font-weight: 600;
       padding: 2px 4px;
       border-radius: 3px;
     }
 
-    /* Input and Button Styling */
+    /* Input and Button Styling (adjusted for main content) */
     input[type="text"] {
       padding: 12px 15px;
       border: 1px solid var(--border-light);
       border-radius: 6px;
       font-size: 1rem;
-      width: calc(100% - 130px); /* Adjust width for button */
+      width: calc(100% - 130px);
       margin-right: 10px;
       box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
       transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -227,13 +302,13 @@
 
     input[type="text"]:focus {
       outline: none;
-      border-color: var(--stripe-blue);
+      border-color: var(--stripe-blue-dark);
       box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
     }
 
     button {
       padding: 12px 20px;
-      background-color: var(--stripe-blue);
+      background-color: var(--stripe-blue-dark);
       color: white;
       border: none;
       border-radius: 6px;
@@ -254,7 +329,7 @@
 
     #noResultsMessage {
       font-size: 0.95rem;
-      color: #dc3545; /* Bootstrap red */
+      color: #dc3545;
       margin-top: 10px;
       font-weight: 500;
     }
@@ -276,10 +351,11 @@
     .post p {
       font-size: 1rem;
       margin-bottom: 10px;
+      color: var(--text-medium);
     }
 
     .post p a {
-      color: var(--stripe-blue);
+      color: var(--stripe-blue-dark);
       text-decoration: none;
       font-weight: 500;
       transition: color 0.2s ease-in-out;
@@ -290,14 +366,13 @@
       text-decoration: underline;
     }
 
-    /* General text enhancements */
+    /* General text enhancements for consistency */
     h1, h2, h3, h4, h5, h6 {
         font-family: 'Inter', sans-serif;
         color: var(--text-dark);
         font-weight: 700;
         letter-spacing: -0.02em;
     }
-
     p {
         color: var(--text-medium);
     }
@@ -323,85 +398,46 @@
       <a href="about.html" class="slide">About</a>
       <a href="disclaimer.html" class="slide">Disclaimer</a>
     </div>
-    
   </header>
 
-  <main>
-
-    <div class="main-content">
-
-    <section class="hero">
-      <p>A fix for Parkinson's disease is on the way. Keep fighting!</p>
-    </section>
-
- <section class="hero">
-      <h1 class="welcome-text">Dopa VOX</h1>
-   </section>
-
-        <p>You can click on any post to comment.</p>
-        <p>You can create a post by <a href="xcreate.html">clicking here</a></p>
-
-<input type="text" id="searchInput" placeholder="Search Posts...">
-<button onclick="handleSearch()">Search</button>
-<div id="noResultsMessage" style="color: red; margin-top: 5px; display: none;">No results found.</div>
-
-<script>
-  function searchPosts(query) {
-    const posts = document.querySelectorAll('.post');
-    let matchFound = false;
-    let firstMatch = null;
-    const regex = new RegExp(`(${query})`, 'gi');
-
-    posts.forEach(post => {
-      const paragraphs = post.querySelectorAll('p');
-      paragraphs.forEach(p => {
-        p.innerHTML = p.textContent; // reset any highlights
-        if (query && p.textContent.toLowerCase().includes(query.toLowerCase())) {
-          p.innerHTML = p.textContent.replace(regex, '<mark>$1</mark>');
-          if (!firstMatch) firstMatch = p;
-          matchFound = true;
-        }
-      });
-    });
-
-    const messageBox = document.getElementById('noResultsMessage');
-    if (query && !matchFound) {
-      messageBox.style.display = 'block';
-    } else {
-      messageBox.style.display = 'none';
-    }
-
-    if (firstMatch) {
-      firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  }
-
-  function handleSearch() {
-    const query = document.getElementById('searchInput').value.trim();
-    searchPosts(query);
-  }
-
-  // Trigger on Enter key
-  document.addEventListener('DOMContentLoaded', () => {
-    const input = document.getElementById('searchInput');
-    input.addEventListener('keypress', function (e) {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        handleSearch();
-      }
-    });
-  });
-</script>
-        
-  <article>
-    <div class="post">
-     <h2>Latest Posts:</h2>
-    <p>03 June 2025 - User did08018: <a href="xpost0002.html">I take propanolol when needed and it helps.</a></p>
-    <p>02 June 2025 - User did08018: <a href="xpost0001.html">I know Levodopa Cardibopa doesn't precipitate the apparition of dyskenesia but I still won't start taking it.</a></p>
+  <section class="hero-stripe">
+    <h1>Accelerating the Future of Parkinson's Treatment</h1>
+    <p class="tagline">Join the global community pushing for breakthroughs and supporting every fight against Parkinson's disease.</p>
+    <div class="hero-buttons">
+      <a href="#" class="hero-button primary">
+        Explore Treatments <i class="fas fa-arrow-right"></i>
+      </a>
+      <a href="#" class="hero-button secondary">
+        Get Involved <i class="fas fa-hand-holding-heart"></i>
+      </a>
     </div>
-  </article>
+  </section>
 
-  </div> </main>
+  <main>
+    <div class="main-content">
+      <p style="text-align: center; font-size: 1.1rem; color: var(--text-dark); margin-bottom: 30px;">
+        A fix for Parkinson's disease is on the way. Keep fighting!
+      </p>
+
+      <h1 class="welcome-text">Dopa VOX – Community Forum</h1>
+
+      <p>You can click on any post to comment.</p>
+      <p>You can create a post by <a href="xcreate.html">clicking here</a></p>
+
+      <div style="display: flex; align-items: center; margin-bottom: 20px;">
+        <input type="text" id="searchInput" placeholder="Search Posts...">
+        <button onclick="handleSearch()">Search</button>
+      </div>
+      <div id="noResultsMessage" style="color: red; margin-top: 5px; display: none;">No results found.</div>
+        
+      <article>
+        <div class="post">
+          <h2>Latest Posts:</h2>
+          <p>03 June 2025 - User did08018: <a href="xpost0002.html">I take propanolol when needed and it helps.</a></p>
+          <p>02 June 2025 - User did08018: <a href="xpost0001.html">I know Levodopa Cardibopa doesn't precipitate the apparition of dyskenesia but I still won't start taking it.</a></p>
+        </div>
+      </article>
+    </div> </main>
 
   <footer>
     &copy; 2025 Finding Dopa. All rights reserved.
@@ -414,16 +450,51 @@
         slide.classList.add('active');
       }
     });
-  </script>
 
-<script>
-function handleSearch() {
-  const query = document.getElementById('searchInput').value.trim();
-  if (query) {
-    searchPosts(query);
-  }
-}
-</script>
-        
+    function searchPosts(query) {
+      const posts = document.querySelectorAll('.post');
+      let matchFound = false;
+      let firstMatch = null;
+      const regex = new RegExp(`(${query})`, 'gi');
+
+      posts.forEach(post => {
+        const paragraphs = post.querySelectorAll('p');
+        paragraphs.forEach(p => {
+          p.innerHTML = p.textContent; // reset any highlights
+          if (query && p.textContent.toLowerCase().includes(query.toLowerCase())) {
+            p.innerHTML = p.textContent.replace(regex, '<mark>$1</mark>');
+            if (!firstMatch) firstMatch = p;
+            matchFound = true;
+          }
+        });
+      });
+
+      const messageBox = document.getElementById('noResultsMessage');
+      if (query && !matchFound) {
+        messageBox.style.display = 'block';
+      } else {
+        messageBox.style.display = 'none';
+      }
+
+      if (firstMatch) {
+        firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    function handleSearch() {
+      const query = document.getElementById('searchInput').value.trim();
+      searchPosts(query);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const input = document.getElementById('searchInput');
+      input.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          handleSearch();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
