@@ -101,6 +101,23 @@
       border: 1px solid var(--stripe-blue-dark); /* Solid border for active */
     }
 
+.hero-highlight {
+  background: linear-gradient(135deg, var(--stripe-gradient-start), var(--stripe-gradient-end));
+  color: var(--white-text);
+  padding: 60px 20px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.2;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  margin: 0;
+}
+
+.hero-highlight h1 {
+  margin: 0;
+}
+    
     /* --- Stripe-inspired Hero Section --- */
     .hero-stripe {
       position: relative;
@@ -409,9 +426,9 @@
     </div>
   </header>
 
-  <section class="hero-stripe">
-    <h1>A fix for Parkinson's disease is on the way. Keep fighting!</h1>
-  </section>
+  <section class="hero-highlight">
+  <h1>A fix for Parkinson's disease is on the way. Keep fighting!</h1>
+</section>
 
   <main>
 <section class="hero-stripe2">
