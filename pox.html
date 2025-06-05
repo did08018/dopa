@@ -107,8 +107,8 @@
 .hero {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: left;
+  justify-content: left;
   margin-top: 0px;
   margin-bottom: 5px;
   text-align: center;
@@ -127,11 +127,14 @@
 }
     
 .welcome-text {
-  font-size: 2.2rem;
-  font-weight: bold;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem); /* Responsive font size */
+  font-weight: 900; /* Extra bold */
+  line-height: 1.1;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for text readability */
+  max-width: 300px;
   color: green;
-  font-family: 'PT Serif', serif;
-  margin: 5px 0 0 0;
+  margin: 5px 40px 0 0;
 }
 
     .legend-section {
