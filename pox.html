@@ -121,7 +121,6 @@
     .hero-stripe {
       position: relative;
       background: linear-gradient(135deg, var(--stripe-gradient-start) 0%, var(--stripe-gradient-end) 100%);
-      min-height: 450px; /* Adjust height as needed */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -132,7 +131,9 @@
       overflow: hidden; /* Important for background effects */
       z-index: 5; /* Below header, above main content card */
     }
-
+     
+    /* min-height: 450px; Adjust height as needed */
+    
     .hero-stripe h1 {
       font-family: 'Inter', sans-serif;
       font-size: clamp(2.5rem, 6vw, 4.5rem); /* Responsive font size */
