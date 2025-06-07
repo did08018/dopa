@@ -251,6 +251,49 @@
       padding: 80px 20px;
       text-align: center;*/ 
 
+
+.hero-title-left {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title-right {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.2rem, 3.5vw, 2rem);
+  font-weight: 600;
+  position: absolute;
+  right: 30px;
+  top: 55%; /* Adjust to fine-tune the vertical position */
+  transform: translateY(-50%);
+  text-align: right;
+  max-width: 300px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+    
+.hero-title-right {
+  opacity: 0;
+  animation: fadeInRight 1.5s ease-out 0.6s forwards;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translate(30px, -50%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
+}
+    
 .diagonal-hero h1 {
       font-family: 'Inter', sans-serif;
       font-size: clamp(2.5rem, 6vw, 4.5rem); /* Responsive font size */
@@ -304,25 +347,15 @@
     </div>
   </header>
 
-    <header2>
-     <div class="diagonal-hero">
-  <h1>Dopa VOX</h1>
-</div>
-  </header2>
-
   <main>
-
-
-    <section class="hero">
-      <h1>Profound<br>Discussions<br>On the Surface</h1>
-    </section>
-
-    <!-- <p>A fix for Parkinson's disease is on the way. Keep fighting!</p> -->
 
     <div class="main-content">
 
-    
-      <main>
+    <section class="diagonal-hero">
+  <h1 class="hero-title-left">Dopa VOX</h1>
+  <h2 class="hero-title-right">Profound Discussions On the Surface</h2>
+</section>
+      
         <p>Click on any post to comment.</p>
         <p>Create a post by <a href="xcreate.html">clicking here</a></p>
 
