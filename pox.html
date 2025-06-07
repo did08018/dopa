@@ -37,6 +37,10 @@
       background-color: #121212;
     }
 
+         header2 {
+      background-color: #f5f8fa;
+    }
+    
     .top-bar {
       display: flex;
       align-items: center;
@@ -115,6 +119,20 @@
       text-align: center;
     }
 
+     .hero h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem); /* Responsive font size */
+      font-weight: 600; /* Extra bold */
+      line-height: 1.1;
+      justify-content:right;
+      align-items: right;
+      margin: 0;
+      color: var(--black-text);
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for text readability */
+      max-width: 400px;
+}
+
+    
     .hero p {
       font-size: 0.8rem;
       max-width: 600px;
@@ -207,6 +225,61 @@
     background-color: yellow;
     font-weight: bold;
   }
+
+    .diagonal-hero {
+    overflow: hidden;
+    width: 100%;
+    background: linear-gradient(45deg, 
+    #2d033b 0%,      /* deep violet */
+    #4f0670 12.5%,   /* indigo */
+    #6d28a3 25%,     /* dark purple */
+    #8e44ad 37.5%,   /* mid purple */
+    #b05afc 50%,     /* lighter purple */
+    #c77dff 62.5%,   /* lavender */
+    #7bdff2 75%,     /* pastel blue */
+    #f48fb1 87.5%,   /* light magenta/pink */
+    #fff1fb 100%     /* very light pink */
+  );
+    text-align: left;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%);
+    min-height: 200px;
+    }
+    
+      /*width: 100vw;
+      padding: 80px 20px;
+      text-align: center;*/ 
+
+.diagonal-hero h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem); /* Responsive font size */
+      font-weight: 900; /* Extra bold */
+      line-height: 1.1;
+      margin: 60px 0 0 20px;
+      color: var(--white-text);
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for text readability */
+      max-width: 400px;
+}
+
+/*margin: 10px 40px 10px 10px;*/
+    
+    .diagonal-hero h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem); /* Responsive font size */
+      font-weight: 700; /* Extra bold */
+      line-height: 1.1;
+      margin: 0;
+      margin: 0 0 20px 0;
+      color: var(--white-text);
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for text readability */
+      max-width: 800px;
+}
+  
+.diagonal-hero h1 span {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
     
   </style>
 </head>
@@ -229,21 +302,26 @@
       <a href="about.html" class="slide">About</a>
       <a href="disclaimer.html" class="slide">Disclaimer</a>
     </div>
-    
   </header>
+
+    <header2>
+     <div class="diagonal-hero">
+  <h1>Dopa VOX</h1>
+</div>
+  </header2>
 
   <main>
 
-    <div class="main-content">
 
     <section class="hero">
-      <p>A fix for Parkinson's disease is on the way. Keep fighting!</p>
+      <h1>Profound<br>Discussions<br>On the Surface</h1>
     </section>
 
- <section class="hero2">
-      <h1 class="welcome-text">Dopa VOX<br>Profound Discussions on the Surface</h1>
-   </section>
+    <!-- <p>A fix for Parkinson's disease is on the way. Keep fighting!</p> -->
 
+    <div class="main-content">
+
+    
       <main>
         <p>Click on any post to comment.</p>
         <p>Create a post by <a href="xcreate.html">clicking here</a></p>
@@ -303,6 +381,7 @@
   <article>
     <div class="post">
      <h2>Latest Posts:</h2>
+    <p>07 June 2025 - User did08018: <a href="xpost0003.html">When I go for a run very early in the morning, I don't get dystonia in my left toes!</a></p>
     <p>03 June 2025 - User did08018: <a href="xpost0002.html">I take propanolol when needed and it helps.</a></p>
     <p>02 June 2025 - User did08018: <a href="xpost0001.html">I know Levodopa Cardibopa doesn't precipitate the apparition of dyskenesia but I still won't start taking it.</a></p>
     </div>
