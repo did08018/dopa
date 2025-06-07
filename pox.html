@@ -266,19 +266,18 @@
 
 .hero-title-right {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(0.8rem, 5vw, 3rem);
-  font-weight: 600;
-  position: absolute;
-  right: 30px;
-  top: 55%; /* Adjust to fine-tune the vertical position */
-  transform: translateY(-50%);
+  font-size: clamp(1rem, 6vw, 4rem); /* Grow big but never wrap */
+  font-weight: 800;
+  white-space: nowrap; /* 🚫 no wrapping */
   text-align: right;
-  max-width: 700px;
+  width: 100%;
+  padding: 0 20px;
+  position: absolute;
+  right: 0;
+  top: 55%;
+  transform: translateY(-50%);
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
   z-index: 2;
-  margin-top: -10px; /* adjust as needed */
-  margin-right: 30px;
-  align-self: flex-end;
 }
 
 /*.hero-title-left {
