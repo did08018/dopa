@@ -281,11 +281,11 @@
   animation: fadeInRight 2.5s ease-out 0.6s forwards;
 }*/
 
-.hero-title-right {
+/*.hero-title-right {
   font-family: 'Inter', sans-serif;
   font-size: clamp(1rem, 6vw, 4rem);
   font-weight: 800;
-  white-space: normal; /* allows line breaks */
+  white-space: normal;
   text-align: center;
   width: 100%;
   position: absolute;
@@ -295,12 +295,27 @@
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
   z-index: 2;
   line-height: 1.1;
+}*/
+
+    .hero-title-right {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 6vw, 4rem);
+  font-weight: 800;
+  white-space: normal;
+  text-align: right;       /* 🔵 right-align text */
+  width: max-content;      /* 🔵 width shrinks to fit text */
+  position: absolute;
+  right: 5vw;              /* 🔵 anchor to right, tweak as needed */
+  top: 20%;                /* 🔼 move it higher on the page */
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+  line-height: 1.1;
 }
     
 /*.hero-title-left {
   opacity: 0;
   animation: fadeInRight 1.5s ease-out 0.6s forwards;
-}
+}*/
 
 @keyframes fadeInRight {
   from {
