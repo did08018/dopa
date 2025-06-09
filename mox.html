@@ -163,9 +163,9 @@
     .diagonal-hero {
       overflow: hidden;
       width: 100vw;
-      background: linear-gradient(45deg,
-        #2d033b 0%, #4f0670 12.5%, #6d28a3 25%, #8e44ad 37.5%,
-        #b05afc 50%, #c77dff 62.5%, #7bdff2 75%, #f48fb1 87.5%, #fff1fb 100%);
+      background: linear-gradient(10deg,
+        #6d28a3 0%, #8e44ad 12.5%, #b05afc 25%, #c77dff 37.5%,
+        #c77dff 50%, #c77dff 62.5%, #7bdff2 75%, #f48fb1 87.5%, #fff1fb 100%);
       text-align: left;
       color: white;
       font-family: 'Inter', sans-serif;
@@ -173,7 +173,9 @@
       min-height: 200px;
       margin: 0;
     }
-
+/*#2d033b 0%, #4f0670 12.5%, #6d28a3 25%, #8e44ad 37.5%,
+        #b05afc 50%, #c77dff 62.5%, #7bdff2 75%, #f48fb1 87.5%, #fff1fb 100%);*/
+    
     .hero-title-left,
     .diagonal-hero h1,
     .diagonal-hero h2 {
@@ -191,11 +193,12 @@
       display: flex;
       justify-content: flex-end;
       align-items: flex-end;
-      padding: 0px 20px 20px 20px;
       position: relative;
       text-align: right;
     }
-    
+
+/*padding: 0px 20px 20px 20px;*/
+
         .hero1 h1 {
       font-family: 'Inter', sans-serif;
       font-size: clamp(1rem, 6vw, 4rem); 
@@ -203,7 +206,7 @@
       line-height: 0.8;
       justify-content:right;
       align-items: right;
-      margin: -50px 0 0 20px;
+      margin: -100px 0 0 0;
       color: var(--black-text);
       text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
       max-width: 700px;
@@ -221,18 +224,18 @@
   color: var(--white-text);
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
   opacity: 0;
-  animation: fadeInRight 3.0s ease-out 1s forwards;
+  animation: fadeInRight 3.0s ease-out 1.0s forwards;
   line-height: 1.1;
 }
 
     @keyframes fadeInRight {
       from {
         opacity: 0;
-        transform: translate(0, 0);
+        transform: translate(25%, 0%);
       }
       to {
         opacity: 1;
-        transform: translate(0, -50%);
+        transform: translate(0%, 0%);
       }
     }
 
@@ -337,7 +340,7 @@
     </section>
 
     <section class="hero1">
-      <h1 class="hero-title-right"><strong><span style="color: white;">P</span></strong>rofound <strong><span style="color: white;">D</span></strong>iscussions on the Surface</h1>
+      <h1 class="hero-title-right"><strong><span style="color: #f5f8fa;">P</strong></span>rofound <strong><span style="color: #f5f8fa;">D</strong></span>iscussions<br>on the Surface</h1>
     </section>
 
     <div class="main-content">
