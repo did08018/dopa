@@ -157,8 +157,24 @@
       background-color: yellow;
       font-weight: bold;
     }
-
+    
     .diagonal-hero {
+  overflow: hidden;
+  width: 100vw;
+  background: linear-gradient(10deg,
+    #6d28a3 0%, #8e44ad 12.5%, #b05afc 25%, #c77dff 37.5%,
+    #c77dff 50%, #c77dff 62.5%, #7bdff2 75%, #f48fb1 87.5%, #fff1fb 100%);
+  color: white;
+  clip-path: polygon(0 0, 100% 0, 100% 60%, 0 80%);
+  min-height: 200px;
+  margin: 0;
+  padding: 0; /* ← Add this */
+  display: flex; /* ← Add for alignment */
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+    /*.diagonal-hero {
       overflow: hidden;
       width: 100vw;
       background: linear-gradient(10deg,
@@ -170,7 +186,7 @@
       clip-path: polygon(0 0, 100% 0, 100% 60%, 0 80%);
       min-height: 200px;
       margin: 0;
-    }
+    }*/
 /*#2d033b 0%, #4f0670 12.5%, #6d28a3 25%, #8e44ad 37.5%,
         #b05afc 50%, #c77dff 62.5%, #7bdff2 75%, #f48fb1 87.5%, #fff1fb 100%);*/
     
@@ -322,10 +338,13 @@
     </div>
   </header>
 
-  <main>
+
     <section class="diagonal-hero">
       <h1 class="hero-title-left">Dopa VOX</h1>
     </section>
+    
+  <main>
+
 
     <section class="hero1">
       <h1 class="hero-title-right"><strong><span style="color: #f5f8fa;">P</strong></span>rofound <strong><span style="color: #f5f8fa;">D</strong></span>iscussions<br>on the Surface</h1>
