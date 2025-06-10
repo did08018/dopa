@@ -151,12 +151,19 @@
       background: #1a1a1a;
       color: white;
       font-size: 0.8rem;
+      line-height: 1.2;
     }
 
     mark {
       background-color: yellow;
       font-weight: bold;
     }
+    
+    .hero-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  width: 100%;
+}
     
     .diagonal-hero {
   overflow: hidden;
@@ -165,7 +172,7 @@
     #6d28a3 0%, #8e44ad 12.5%, #b05afc 25%, #c77dff 37.5%,
     #c77dff 50%, #c77dff 62.5%, #7bdff2 75%, #f48fb1 87.5%, #fff1fb 100%);
   color: white;
-  clip-path: polygon(0 0, 100% 0, 100% 60%, 0 80%);
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
   min-height: 200px;
   margin: 0;
   padding: 0; /* ← Add this */
@@ -197,7 +204,7 @@
       font-size: clamp(3rem, 6vw, 4.5rem);
       font-weight: 900;
       line-height: 1.1;
-      margin: 30px 0 0 20px;
+      margin: 20px 0 0 5px;
       color: var(--white-text);
       text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       max-width: 300px;
@@ -212,21 +219,34 @@
     }
 
         .hero1 h1 {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(1rem, 6vw, 4rem); 
+      font-family: 'Inter', sans-serif; 
       font-weight: 200;
       line-height: 0.8;
       justify-content:right;
       align-items: right;
-      margin: -100px 0 0 0;
+      margin 0;
       color: var(--black-text);
       text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
       max-width: 700px;
 }
-
+/*font-size: clamp(1rem, 6vw, 4rem);*/
 .hero-title-right {
   font-family: 'Inter', sans-serif;
   font-size: clamp(1rem, 6vw, 2rem);
+  font-weight: 800;
+  text-align: right;
+  margin: -100px 0 0 0;
+  color: var(--white-text);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  animation: fadeInRight 3.0s ease-out 1.0s forwards;
+  line-height: 1.1;
+  padding-right: 5px;
+}
+
+/* .hero-title-right {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 6vw, 1rem);
   font-weight: 800;
   white-space: normal;
   text-align: right;
@@ -238,7 +258,7 @@
   opacity: 0;
   animation: fadeInRight 3.0s ease-out 1.0s forwards;
   line-height: 1.1;
-}
+}*/
 
     @keyframes fadeInRight {
       from {
@@ -340,14 +360,18 @@
 
 
     <section class="diagonal-hero">
+      <div class="hero-wrapper">
       <h1 class="hero-title-left">Dopa VOX</h1>
+    </div>
     </section>
     
   <main>
 
 
     <section class="hero1">
+      <div class="hero-wrapper">
       <h1 class="hero-title-right"><strong><span style="color: #f5f8fa;">P</strong></span>rofound <strong><span style="color: #f5f8fa;">D</strong></span>iscussions<br>on the Surface</h1>
+    </div>
     </section>
 
     <div class="main-content">
@@ -378,6 +402,10 @@
       </article>
     </div>
   </main>
+
+  <footer>
+    &copy; 2025 Finding Dopa. All rights reserved.
+  </footer>
 
   <script>
     function searchPosts(query) {
